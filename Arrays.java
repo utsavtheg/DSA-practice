@@ -119,5 +119,159 @@
 // }
 
 
+
+
+//next permutation 
+// import java.util.*;
+
+// public class Arrays{
+//     public static void nextPermutation(int nums[]){
+//         int n = nums.length;
+//         int pivot = -1;
+//         for(int i= n-2;i>=0;i--){
+//             if(nums[i]<nums[i+1]){
+//                 pivot = i;
+//                 break;
+//             }
+
+//         }
+
+//         // if pivot = -1
+//         if(pivot == -1){
+//             reverse(nums,0,n-1);
+//             return;
+//         }
+    
+
+
+//     for(int i=n-1;i>pivot;i--){
+//         if(nums[i]>nums[pivot]){
+//             int temp = nums[i];
+//             nums[i] = nums[pivot];
+//             nums[pivot] = temp;
+//             break;
+//         }
+
+//     }
+
+
+//     reverse(nums,pivot+1,n-1);
+
+
+
+    
+//  }
+
+// private static void reverse(int[] nums,int i, int j){
+//     while(i<j){
+//         int temps = nums[i];
+//         nums[i] = nums[j];
+//         nums[j] = temps;
+//         i++;
+//         j--;
+//     }
+// }
+
+
+// public static void main(String[] args) {
+//     int nums[] = {1,2,3};
+//     nextPermutation(nums);
+//    for (int x : nums) {
+//             System.out.print(x + " ");
+//         }
+// }
+// }
+
+
   
 
+// find missing and repeat number
+// public class Arrays{
+//     public static void findNumber(int[] nums){
+//         int missing = -1,repeat = -1;
+//         int n = nums.length;
+//         int count[] = new int[n+1];
+//         for(int i =0;i<n;i++){
+//             count[nums[i]]++;
+//         }
+
+//         for(int i =1;i<= n;i++){
+//             if(count[i] == 0){
+//                 missing = i;
+//             }
+
+//             if(count[i] == 2){
+//                 repeat = i;
+//             }
+//         }
+//         System.out.println("("+ repeat + ","+ missing+")");
+
+//     }
+//     public static void main(String[] args) {
+//         int[] nums = {1,2,2,4};
+//       findNumber(nums);
+
+//     }
+// }
+
+
+
+// Buy and sell stocks
+// public class Arrays{
+//     public static int buyStocks(int prices[]){
+//        int buyPrice = Integer.MAX_VALUE;
+//        int maxProfit = 0;
+//        for(int i=0;i<prices.length;i++){
+//         if(buyPrice < prices[i]){
+//             int profit = prices[i] - buyPrice;
+//              maxProfit = Math.max(maxProfit, profit);
+//         }else{
+//             buyPrice = prices[i];
+//         }
+//        }
+
+//        return maxProfit;
+//     }
+//     public static void main(String[] args) {
+//         int prices [] = {7,1,5,3,6,4};
+//         int result = buyStocks(prices);
+//         System.out.println(result);
+//     }
+// }
+
+
+
+//sorted repeated array
+// public class Arrays{
+//     public static int serachInrepeated(int nums[],int target){
+//         int start =0,end= nums.length-1;
+//         while(start<= end){
+//             int mid = start + (end - start)/2;
+
+//             if(nums[mid] == target){
+//                 return mid;
+//             }
+
+//             if(nums[start] <= nums[mid]){
+//                 if(nums[start]<= target && target < nums[mid]){
+//                     end = mid-1;
+//                 }else{
+//                     start = mid+1;
+//                 }
+//             }else{
+//                 if(nums[mid]<target && target <= nums[end]){
+//                     start = mid+1;
+//                 }else {
+//                     end = mid -1;
+//                 }
+//             }
+//         }
+//         return -1;
+//     }
+//     public static void main(String[] args) {
+//        int[] nums = {4,5,6,7,0,1,2};
+//         int target = 0;
+//        int result = serachInrepeated(nums, target);
+//        System.out.println(result);
+//     }
+// }

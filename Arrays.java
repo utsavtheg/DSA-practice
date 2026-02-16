@@ -275,3 +275,113 @@
 //        System.out.println(result);
 //     }
 // }
+
+
+// product of array itself
+// import java.util.*;
+
+// public class Arrays{
+//     public static int[] productOfArray(int nums[]){
+//         int n = nums.length;
+//         int leftProduct[] = new int[n];
+//         leftProduct[0] = 1;
+//         for(int i=1;i<n;i++){
+//             leftProduct[i] = leftProduct[i-1]*nums[i-1];
+//             // return leftProduct[i];
+//         }
+//         int rightProduct[] = new int[n];
+//         rightProduct[n-1] = 1;
+//         for(int i= n-2;i>= 0;i--){
+//             rightProduct[i] = rightProduct[i+1]*nums[i+1];
+//             // return rightProduct[i];
+//         }
+        
+//         int ans[] = new int[n];
+//         for(int i = 0;i<n;i++){
+//         ans[i] = leftProduct[i]*rightProduct[i];
+//         }
+
+//         return ans;
+
+//     }
+//     public static void main(String[] args) {
+//         int nums[] = {1,2,3,4};
+//         int[] result = productOfArray(nums);
+//         for(int i=0;i<result.length;i++){
+//         System.out.print(result[i]+ " ");
+//         }
+//     }
+
+    
+// }
+
+
+
+//Maximum product subarray
+// public class Arrays{
+//     public static int maxProduct(int nums[]){
+//         int currMax = nums[0];
+//         int currMin = nums[0];
+//         int ans = nums[0];
+//         int n = nums.length;
+//         for(int i=1;i<n;i++){
+//             if(nums[i] < 0 ){
+//             int temp = currMax;
+//             currMax = currMin;
+//             currMin = temp;
+//             }
+
+//             int tempMax = Math.max(nums[i], nums[i]*currMax);
+//             int tempMin = Math.min(nums[i], nums[i]*currMin);
+           
+//             currMax = tempMax;
+//             currMin = tempMin;
+             
+//             ans = Math.max(currMax, ans);
+              
+              
+
+//         }
+//         return ans;
+//     }
+//     public static void main(String[] args) {
+//         int nums[] = {2,3,-2,4};
+//         int result = maxProduct(nums);
+//         System.out.println(result);
+        
+//     }
+// }
+
+
+//find minimum in rotated array
+// public class Arrays{
+//     public static int findMinInArray(int nums[]){
+//         // int min = Integer.MAX_VALUE;
+//         int end = nums.length-1;
+//         int st = 0;
+//         while(st <= end){
+//             int mid = (st + end)/2;
+
+//             if(nums[st] <= nums[end]){
+//                 return nums[st];
+//             }
+
+//             if(nums[mid] >= nums[st]){
+//                 st = mid+1;
+//             }else{
+//                 end = mid;
+//             }
+
+            
+//         }
+//         return nums[st];
+//     }
+
+//     public static void main(String[] args) {
+//         int nums[] = {4,5,6,7,0,1,2
+
+//         };
+//         int result = findMinInArray(nums);
+//         System.out.println(result);
+//     }
+// }

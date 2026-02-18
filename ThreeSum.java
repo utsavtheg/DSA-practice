@@ -388,26 +388,85 @@
 
 
 //Pair sum in a sorted array
-public class Arrays{
-    public static boolean pairSum(int arr[], int target){
-        for(int i=0;i<arr.length;i++){
-            for(int j=i+1;j<arr.length;j++){
-                if(target == arr[i]+arr[j]){
-                    System.out.println("("+arr[i]+","+arr[j]+")");
-                    return true;
-                // }if(target != arr[i]+arr[j]){
-                //     return false;
+// public class Arrays{
+//    public static boolean pairSearch(int arr[],int target){
+//     int n = arr.length;
+//     for(int i=0;i<n-1;i++){
+//         if(arr[i]>arr[i+1]){
+//             break;
+//         }
+
+//         int l = (i+1)%n;
+
+//         int r = i;
+
+
+//         while(l != r){
+//             if(arr[l]+arr[r] == target)
+//                 return true;
+//             if(arr[l]+arr[r]<target){
+//                 l = (l+1)%n;
+//             }else {
+//                 r = (r-1+n)%n;
+//             }
+//         }
+//     }
+//     return false;
+//    }
+
+//    public static void main(String[] args) {
+//     int arr[] = {9,10,10,11,15,26,38};
+//     int target = 45;
+//     if(pairSearch(arr, target)){
+//         System.out.println("true");
+//     }else{
+//         System.out.println("false");
+//     }
+//    }
+// }
+
+
+
+//3Sum problem
+import java.util.*;
+
+public class ThreeSum{
+    public static List<List<Integer>> threeSum(int nums[]){
+        Arrays.sort(nums);
+        List<List<Integer>> ans = new ArrayList<>();
+        int n = nums.length;
+
+        for(int i=0;i<n-2;i++){
+            if(i>0 && nums[i] == nums[i-1]) continue;
+            int left = i+1;
+            int right = n-1;
+
+            while(left < right){
+                int sum = nums[i]+nums[left]+nums[right];
+                if(sum == 0){
+                    ans.add(Arrays.asList(nums[i], nums[left], nums[right]));
+
+                    
+
+                    left++;
+                    right--;
+
+                    while(left<right && nums[left] == nums[left-1])left++;
+
+
+                    while(left<right && nums[right] == nums[right+1])right--;
+                }else if(sum<0){
+                    left++;
+                }else{
+                    right--;
                 }
             }
         }
-        return false;
+        return ans;
     }
     public static void main(String[] args) {
-        int arr[] = {11,15,6,8,9,10};
-        int target = 16;
-        // int arr[] = {9,10,10,11,15,26,38};
-        // int target = 45;
-        System.out.println(pairSum(arr, target));
-        
+        int nums[] = {-1,0,1,2,-1,-4};
+        List<List<Integer>> result  = threeSum(nums);
+        System.out.println(result);
     }
 }

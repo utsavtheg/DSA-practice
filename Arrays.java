@@ -385,3 +385,29 @@
 //         System.out.println(result);
 //     }
 // }
+
+
+//Pair sum in a sorted array
+public class Arrays{
+    public static boolean pairSum(int arr[], int target){
+        for(int i=0;i<arr.length;i++){
+            for(int j=i+1;j<arr.length;j++){
+                if(target == arr[i]+arr[j]){
+                    System.out.println("("+arr[i]+","+arr[j]+")");
+                    return true;
+                // }if(target != arr[i]+arr[j]){
+                //     return false;
+                }
+            }
+        }
+        return false;
+    }
+    public static void main(String[] args) {
+        int arr[] = {11,15,6,8,9,10};
+        int target = 16;
+        // int arr[] = {9,10,10,11,15,26,38};
+        // int target = 45;
+        System.out.println(pairSum(arr, target));
+        
+    }
+}
